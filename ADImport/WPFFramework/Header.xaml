@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="WPFFramework.Controls.Viewers.Header"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" d:DesignHeight="80" d:DesignWidth="900"
+             UseLayoutRounding="True">
+    <Grid Background="#262524">
+        <Image HorizontalAlignment="Left" VerticalAlignment="Top" Stretch="None">
+            <Image.Source>
+                <BitmapImage UriSource="pack://application:,,,/ADImport;component/Resources/header_left.png" />
+            </Image.Source>
+        </Image>
+        <Label x:Name="lblTitle" Content="Title" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="165,17,0,0" Foreground="White" FontWeight="Bold" FontSize="20" FontFamily="Segoe UI"/>
+        <Label x:Name="lblSubtitle" Content="Subtitle" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="166,43,0,0" Foreground="White" FontFamily="Segoe UI"/>
+
+        <Border BorderThickness="0 0 0 1" BorderBrush="Black" />
+    </Grid>
+</UserControl>

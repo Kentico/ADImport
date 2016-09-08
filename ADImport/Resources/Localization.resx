@@ -1,0 +1,846 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Console_SelectedImportProfile" xml:space="preserve">
+    <value>Selected import profile: [{0}]</value>
+  </data>
+  <data name="Console_SpecifyProfile" xml:space="preserve">
+    <value>Please specify the import profile. For more help use the /h selector.</value>
+  </data>
+  <data name="Error_SelectPath" xml:space="preserve">
+    <value>Please select path to the import profile.</value>
+  </data>
+  <data name="Error_FileNotFound" xml:space="preserve">
+    <value>Specified file was not found.</value>
+  </data>
+  <data name="Error_ProfileDoesNotExist" xml:space="preserve">
+    <value>Import profile [{0}] doesn't exist.</value>
+  </data>
+  <data name="General_Browse" xml:space="preserve">
+    <value>Browse</value>
+  </data>
+  <data name="General_Connect" xml:space="preserve">
+    <value>Connect</value>
+  </data>
+  <data name="Step1_ExistingImportProfile" xml:space="preserve">
+    <value>Use an existing import profile</value>
+  </data>
+  <data name="Step1_Intro" xml:space="preserve">
+    <value>This wizard will guide you through process of importing data from Active Directory to Kentico. You can select users and groups to be imported defining additional settings like user fields mapping, Kentico roles assignment, save profile for future usage etc.</value>
+  </data>
+  <data name="Step1_NewImportProfile" xml:space="preserve">
+    <value>Create new import profile</value>
+  </data>
+  <data name="Step2_ConnectionSuccessful" xml:space="preserve">
+    <value>Connection to SQL Server was successfully established.</value>
+  </data>
+  <data name="Step2_Database" xml:space="preserve">
+    <value>Database name:</value>
+  </data>
+  <data name="Step2_ErrorConnectingDB" xml:space="preserve">
+    <value>There was a problem trying to connect to the SQL server. The following error occurred:</value>
+  </data>
+  <data name="Step2_Password" xml:space="preserve">
+    <value>Password:</value>
+  </data>
+  <data name="Step2_ServerName" xml:space="preserve">
+    <value>SQL Server name or IP address:</value>
+  </data>
+  <data name="Step2_TryingToConnect" xml:space="preserve">
+    <value>Trying to establish connection to the SQL Server...</value>
+  </data>
+  <data name="Step2_UseAccountName" xml:space="preserve">
+    <value>Use SQL Server account</value>
+  </data>
+  <data name="Step2_Username" xml:space="preserve">
+    <value>User name:</value>
+  </data>
+  <data name="Step2_UseTrustedConnection" xml:space="preserve">
+    <value>Use integrated Windows authentication</value>
+  </data>
+  <data name="Step3_ConnectionSuccessful" xml:space="preserve">
+    <value>Connection to domain controller was successfully established.</value>
+  </data>
+  <data name="Step3_DCName" xml:space="preserve">
+    <value>Domain controller name or IP address:</value>
+  </data>
+  <data name="Error_ConnectingAD" xml:space="preserve">
+    <value>There was a problem trying to connect to domain controller. Following error occurred:</value>
+  </data>
+  <data name="Step3_Password" xml:space="preserve">
+    <value>Password:</value>
+  </data>
+  <data name="Step3_SpecifyCredentials" xml:space="preserve">
+    <value>Specify domain controller and logon credentials</value>
+  </data>
+  <data name="Step3_TryingToConnect" xml:space="preserve">
+    <value>Trying to establish connection to domain controller...</value>
+  </data>
+  <data name="Step3_UseCurrentAccount" xml:space="preserve">
+    <value>Use current domain controller and current user account</value>
+  </data>
+  <data name="Step3_Username" xml:space="preserve">
+    <value>User name:</value>
+  </data>
+  <data name="StepDescription_1" xml:space="preserve">
+    <value>Please choose if you want to create a new import profile or use an existing one.</value>
+  </data>
+  <data name="StepDescription_10" xml:space="preserve">
+    <value>Please choose if you want to import the data now or/and save the import profile.</value>
+  </data>
+  <data name="StepDescription_11" xml:space="preserve">
+    <value>Please make sure that all selected data has been successfuly imported.</value>
+  </data>
+  <data name="StepDescription_2" xml:space="preserve">
+    <value>Please enter the databse connection details.</value>
+  </data>
+  <data name="StepDescription_3" xml:space="preserve">
+    <value>Please enter the Active Directory controller details.</value>
+  </data>
+  <data name="StepDescription_4" xml:space="preserve">
+    <value>Please adjust the settings of the import process.</value>
+  </data>
+  <data name="StepDescription_5" xml:space="preserve">
+    <value>Please choose the user name and role name format and specify mapping of user fields.</value>
+  </data>
+  <data name="StepDescription_6" xml:space="preserve">
+    <value>Please select users and groups to be imported into the Kentico database.</value>
+  </data>
+  <data name="StepDescription_7" xml:space="preserve">
+    <value>Please adjust selected users.</value>
+  </data>
+  <data name="StepDescription_8" xml:space="preserve">
+    <value>Please adjust selected groups.</value>
+  </data>
+  <data name="StepDescription_9" xml:space="preserve">
+    <value>Please select Kentico roles which the imported users will be assigned to.</value>
+  </data>
+  <data name="StepName_1" xml:space="preserve">
+    <value>Import profile</value>
+  </data>
+  <data name="StepName_10" xml:space="preserve">
+    <value>Finalize</value>
+  </data>
+  <data name="StepName_11" xml:space="preserve">
+    <value>Import log</value>
+  </data>
+  <data name="StepName_2" xml:space="preserve">
+    <value>Choose Kentico database</value>
+  </data>
+  <data name="StepName_3" xml:space="preserve">
+    <value>Choose Active Directory controller</value>
+  </data>
+  <data name="StepName_4" xml:space="preserve">
+    <value>Import settings</value>
+  </data>
+  <data name="StepName_5" xml:space="preserve">
+    <value>Field mapping</value>
+  </data>
+  <data name="StepName_6" xml:space="preserve">
+    <value>Select users &amp; groups to be imported</value>
+  </data>
+  <data name="StepName_7" xml:space="preserve">
+    <value>Adjust users to be imported</value>
+  </data>
+  <data name="StepName_8" xml:space="preserve">
+    <value>Adjust groups to be imported</value>
+  </data>
+  <data name="StepName_9" xml:space="preserve">
+    <value>Assign imported users to Kentico roles</value>
+  </data>
+  <data name="Wizard_Back" xml:space="preserve">
+    <value>&lt; Back</value>
+  </data>
+  <data name="Wizard_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Wizard_Next" xml:space="preserve">
+    <value>Next &gt;</value>
+  </data>
+  <data name="Step4_AllGroups" xml:space="preserve">
+    <value>All groups</value>
+  </data>
+  <data name="Step4_AllUsers" xml:space="preserve">
+    <value>All users</value>
+  </data>
+  <data name="Step4_CreateLog" xml:space="preserve">
+    <value>Log import process to file</value>
+  </data>
+  <data name="Step4_DeleteOldObjects" xml:space="preserve">
+    <value>Delete users and roles that do not exist in the Active Directory</value>
+  </data>
+  <data name="Step4_ImportGroups" xml:space="preserve">
+    <value>Import groups:</value>
+  </data>
+  <data name="Step4_ImportUsers" xml:space="preserve">
+    <value>Import users:</value>
+  </data>
+  <data name="Step4_OnlySelected" xml:space="preserve">
+    <value>Only selected</value>
+  </data>
+  <data name="Step4_UpdateSelectedImportNewGroups" xml:space="preserve">
+    <value>Update selected and import all new groups</value>
+  </data>
+  <data name="Step4_UpdateSelectedImportNewUsers" xml:space="preserve">
+    <value>Update selected and import all new users</value>
+  </data>
+  <data name="Step4_SelectSites" xml:space="preserve">
+    <value>Select sites:</value>
+  </data>
+  <data name="Step4_UpdateData" xml:space="preserve">
+    <value>Update data of existing users and roles</value>
+  </data>
+  <data name="Step4_UpdateMemberships" xml:space="preserve">
+    <value>Update roles for existing Active Directory users</value>
+  </data>
+  <data name="Error_MovingStep" xml:space="preserve">
+    <value>Unexpected error occurred while proceeding to the next step. Please read the following error:</value>
+  </data>
+  <data name="Error_MovingStepCaption" xml:space="preserve">
+    <value>Error while proceeding to the next step.</value>
+  </data>
+  <data name="General_Group" xml:space="preserve">
+    <value>Group</value>
+  </data>
+  <data name="General_Groups" xml:space="preserve">
+    <value>Groups</value>
+  </data>
+  <data name="General_Role" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="General_Roles" xml:space="preserve">
+    <value>Roles</value>
+  </data>
+  <data name="General_User" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="General_Users" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="Rolename_Format_DomainAndSAM" xml:space="preserve">
+    <value>Domain\SAM (intranet\DB admins)</value>
+  </data>
+  <data name="Rolename_Format_SAM" xml:space="preserve">
+    <value>SAM (DB Admins)</value>
+  </data>
+  <data name="Step5_ImportRoleDesc" xml:space="preserve">
+    <value>Import description:</value>
+  </data>
+  <data name="Step5_RoleDisplayNameFormat" xml:space="preserve">
+    <value>Role display name format:</value>
+  </data>
+  <data name="Step5_Source" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="Step5_Target" xml:space="preserve">
+    <value>Target</value>
+  </data>
+  <data name="Step5_UserCMSEditor" xml:space="preserve">
+    <value>Configure new users as Kentico editors:</value>
+  </data>
+  <data name="Step5_UsernameFormat" xml:space="preserve">
+    <value>User name format:</value>
+  </data>
+  <data name="Username_Format_DomainAndSAM" xml:space="preserve">
+    <value>Domain\SAM (intranet\joe)</value>
+  </data>
+  <data name="Username_Format_SAM" xml:space="preserve">
+    <value>SAM account name (joe)</value>
+  </data>
+  <data name="Username_Format_UPN" xml:space="preserve">
+    <value>UPN (joe@intranet.mycompany.com)</value>
+  </data>
+  <data name="General_TestConnection" xml:space="preserve">
+    <value>Test connection</value>
+  </data>
+  <data name="Error_BadUsernameOrPassword" xml:space="preserve">
+    <value>Authentication failed. You have entered invalid username or password.</value>
+  </data>
+  <data name="General_DeselectAll" xml:space="preserve">
+    <value>Deselect all</value>
+  </data>
+  <data name="General_SelectAll" xml:space="preserve">
+    <value>Select all</value>
+  </data>
+  <data name="Wizard_ConfirmExit" xml:space="preserve">
+    <value>Are you sure you want to close the wizard?</value>
+  </data>
+  <data name="Wizard_ConfirmExitCaption" xml:space="preserve">
+    <value>Confirm exit</value>
+  </data>
+  <data name="General_Step" xml:space="preserve">
+    <value>Step</value>
+  </data>
+  <data name="Wizard_Title" xml:space="preserve">
+    <value>Kentico Active Directory Import Utility {0}</value>
+  </data>
+  <data name="Step6_LoadingADStruct" xml:space="preserve">
+    <value>Loading active directory structure...</value>
+  </data>
+  <data name="General_Filter" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="Step8_GroupName" xml:space="preserve">
+    <value>Group name / Kentico role name:</value>
+  </data>
+  <data name="Step7_DisplayUserName" xml:space="preserve">
+    <value>Display name/ Kentico user name:</value>
+  </data>
+  <data name="General_Fullname" xml:space="preserve">
+    <value>Full name</value>
+  </data>
+  <data name="General_Groupname" xml:space="preserve">
+    <value>Group name</value>
+  </data>
+  <data name="General_Selected" xml:space="preserve">
+    <value>Selected</value>
+  </data>
+  <data name="General_Username" xml:space="preserve">
+    <value>User name</value>
+  </data>
+  <data name="Step6_UsersInGroup" xml:space="preserve">
+    <value>Select users to be imported:</value>
+  </data>
+  <data name="General_PathColon" xml:space="preserve">
+    <value>Path:</value>
+  </data>
+  <data name="Step10_ImportNow" xml:space="preserve">
+    <value>Import now</value>
+  </data>
+  <data name="Step10_SaveImportProfile" xml:space="preserve">
+    <value>Save import profile to file</value>
+  </data>
+  <data name="Step9_SelectRoles" xml:space="preserve">
+    <value>Select roles:</value>
+  </data>
+  <data name="Step9_Site" xml:space="preserve">
+    <value>Site:</value>
+  </data>
+  <data name="General_XMLFiles" xml:space="preserve">
+    <value>XML files</value>
+  </data>
+  <data name="Error_ArgumentException" xml:space="preserve">
+    <value>Invalid arguments.</value>
+  </data>
+  <data name="Error_DirectoryNotFoundException" xml:space="preserve">
+    <value>Specified directory was not found.</value>
+  </data>
+  <data name="Error_FileNotFoundException" xml:space="preserve">
+    <value>Specified file was not found.</value>
+  </data>
+  <data name="Error_IOErrorCaption" xml:space="preserve">
+    <value>I/O Error</value>
+  </data>
+  <data name="Error_PathTooLongException" xml:space="preserve">
+    <value>Specified path is too long.</value>
+  </data>
+  <data name="Error_UnauthorizedAccessException" xml:space="preserve">
+    <value>You have insufficient permissions to write to the file.</value>
+  </data>
+  <data name="Step10_ConfirmOverwrite" xml:space="preserve">
+    <value>Are you sure you want to overwrite the existing profile?</value>
+  </data>
+  <data name="Step10_ConfirmOverwriteCaption" xml:space="preserve">
+    <value>Confirm overwrite</value>
+  </data>
+  <data name="Log_ImportProfileSaved" xml:space="preserve">
+    <value>Import profile successfully saved to "{0}".</value>
+  </data>
+  <data name="General_DeselectAllRecursively" xml:space="preserve">
+    <value>Deselect all recursively</value>
+  </data>
+  <data name="General_SelectAllRecursively" xml:space="preserve">
+    <value>Select all recursively</value>
+  </data>
+  <data name="General_Import" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="General_None" xml:space="preserve">
+    <value>(None)</value>
+  </data>
+  <data name="General_Sitename" xml:space="preserve">
+    <value>Site</value>
+  </data>
+  <data name="General_Rolename" xml:space="preserve">
+    <value>Role name:</value>
+  </data>
+  <data name="General_Assign" xml:space="preserve">
+    <value>Assign</value>
+  </data>
+  <data name="Step6_DeselectingNodes" xml:space="preserve">
+    <value>Nodes are being deselected...</value>
+  </data>
+  <data name="Step6_SelectingNodes" xml:space="preserve">
+    <value>Nodes are being selected...</value>
+  </data>
+  <data name="Wizard_Finish" xml:space="preserve">
+    <value>Finish</value>
+  </data>
+  <data name="General_DisplayName" xml:space="preserve">
+    <value>Display name</value>
+  </data>
+  <data name="Log_DeletingRole" xml:space="preserve">
+    <value>Deleting role '{0}'...</value>
+  </data>
+  <data name="Log_ImportingRole" xml:space="preserve">
+    <value>Importing role '{0}' to site '{1}'...</value>
+  </data>
+  <data name="Log_ImportingUser" xml:space="preserve">
+    <value>Importing user '{0}'...</value>
+  </data>
+  <data name="Step2_CheckingLicense" xml:space="preserve">
+    <value>Checking license...</value>
+  </data>
+  <data name="General_LOGFiles" xml:space="preserve">
+    <value>Log files</value>
+  </data>
+  <data name="Log_SkippingEmptyUsername" xml:space="preserve">
+    <value>WARNING: Impossible to import user with identifier {0} because of empty user name.</value>
+  </data>
+  <data name="Log_UpdatingUser" xml:space="preserve">
+    <value>Updating user '{0}'...</value>
+  </data>
+  <data name="Log_DeletingUser" xml:space="preserve">
+    <value>Deleting user '{0}'...</value>
+  </data>
+  <data name="Log_UpdatingMemberships" xml:space="preserve">
+    <value>Updating memberships of user '{0}'...</value>
+  </data>
+  <data name="Log_AssigningUserToRole" xml:space="preserve">
+    <value>Assigning user '{0}' to role '{1}'...</value>
+  </data>
+  <data name="Error_PathRequired" xml:space="preserve">
+    <value>You have to specify the path.</value>
+  </data>
+  <data name="Log_ImportComplete" xml:space="preserve">
+    <value>Import has successfully finished ({0}h {1}m {2}s).</value>
+  </data>
+  <data name="Step2_CheckingVersion" xml:space="preserve">
+    <value>Checking Kentico version...</value>
+  </data>
+  <data name="Step2_WrongVersion" xml:space="preserve">
+    <value>Version of selected Kentico database should be {0} (current database version is {1}).</value>
+  </data>
+  <data name="Error_ProfileIsNotValid" xml:space="preserve">
+    <value>Specified import profile is not valid.</value>
+  </data>
+  <data name="Console_Help" xml:space="preserve">
+    <value>\r\nThe syntax of this command is: ADIMPORT /profile filename\r\n\r\nfilename - Path leading to the import profile (an XML file with import settings). The path can be specified either relatively or absolutely. Make sure that you use proper quotation.\r\n</value>
+  </data>
+  <data name="ADAttribute_c" xml:space="preserve">
+    <value>Country code</value>
+  </data>
+  <data name="ADAttribute_cn" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="ADAttribute_co" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="ADAttribute_comment" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="ADAttribute_company" xml:space="preserve">
+    <value>Company</value>
+  </data>
+  <data name="ADAttribute_department" xml:space="preserve">
+    <value>Department</value>
+  </data>
+  <data name="ADAttribute_division" xml:space="preserve">
+    <value>Division</value>
+  </data>
+  <data name="ADAttribute_employeeID" xml:space="preserve">
+    <value>Employee ID</value>
+  </data>
+  <data name="ADAttribute_facsimileTelephoneNumber" xml:space="preserve">
+    <value>Fax number</value>
+  </data>
+  <data name="ADAttribute_givenName" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="ADAttribute_homeDirectory" xml:space="preserve">
+    <value>Home folder</value>
+  </data>
+  <data name="ADAttribute_homePhone" xml:space="preserve">
+    <value>Home phone</value>
+  </data>
+  <data name="ADAttribute_homePostalAddress" xml:space="preserve">
+    <value>Home address</value>
+  </data>
+  <data name="ADAttribute_info" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="ADAttribute_initials" xml:space="preserve">
+    <value>Initials</value>
+  </data>
+  <data name="ADAttribute_ipPhone" xml:space="preserve">
+    <value>IP Phone</value>
+  </data>
+  <data name="ADAttribute_l" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="ADAttribute_lastLogon" xml:space="preserve">
+    <value>Last logon</value>
+  </data>
+  <data name="ADAttribute_mail" xml:space="preserve">
+    <value>E-mail address</value>
+  </data>
+  <data name="ADAttribute_middleName" xml:space="preserve">
+    <value>Middle name</value>
+  </data>
+  <data name="ADAttribute_mobile" xml:space="preserve">
+    <value>Mobile number</value>
+  </data>
+  <data name="ADAttribute_none" xml:space="preserve">
+    <value>(None)</value>
+  </data>
+  <data name="ADAttribute_objectSid" xml:space="preserve">
+    <value>Object SID</value>
+  </data>
+  <data name="ADAttribute_otherFacsimileTelephoneNumber" xml:space="preserve">
+    <value>Fax number - others</value>
+  </data>
+  <data name="ADAttribute_otherHomePhone" xml:space="preserve">
+    <value>Home phone - others</value>
+  </data>
+  <data name="ADAttribute_otherIpPhone" xml:space="preserve">
+    <value>IP Phone - others</value>
+  </data>
+  <data name="ADAttribute_otherMailbox" xml:space="preserve">
+    <value>E-mail address - others</value>
+  </data>
+  <data name="ADAttribute_otherMobile" xml:space="preserve">
+    <value>Mobile number - others</value>
+  </data>
+  <data name="ADAttribute_otherPager" xml:space="preserve">
+    <value>Pager number - others</value>
+  </data>
+  <data name="ADAttribute_otherTelephone" xml:space="preserve">
+    <value>Phone number - others</value>
+  </data>
+  <data name="ADAttribute_pager" xml:space="preserve">
+    <value>Pager number</value>
+  </data>
+  <data name="ADAttribute_personalTitle" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="ADAttribute_physicalDeliveryOfficeName" xml:space="preserve">
+    <value>Office location</value>
+  </data>
+  <data name="ADAttribute_postalAddress" xml:space="preserve">
+    <value>Postal address</value>
+  </data>
+  <data name="ADAttribute_postalCode" xml:space="preserve">
+    <value>ZIP / Postal code</value>
+  </data>
+  <data name="ADAttribute_postOfficeBox" xml:space="preserve">
+    <value>P.O. Box</value>
+  </data>
+  <data name="ADAttribute_primaryTelexNumber" xml:space="preserve">
+    <value>Telex number</value>
+  </data>
+  <data name="ADAttribute_sAMAccountName" xml:space="preserve">
+    <value>Logon name (pre-Windows 2000)</value>
+  </data>
+  <data name="ADAttribute_sn" xml:space="preserve">
+    <value>Last name</value>
+  </data>
+  <data name="ADAttribute_st" xml:space="preserve">
+    <value>State / province</value>
+  </data>
+  <data name="ADAttribute_street" xml:space="preserve">
+    <value>Street</value>
+  </data>
+  <data name="ADAttribute_streetAddress" xml:space="preserve">
+    <value>Street address</value>
+  </data>
+  <data name="ADAttribute_telephoneNumber" xml:space="preserve">
+    <value>Phone number</value>
+  </data>
+  <data name="ADAttribute_telexNumber" xml:space="preserve">
+    <value>Telex number - others</value>
+  </data>
+  <data name="ADAttribute_title" xml:space="preserve">
+    <value>Job title</value>
+  </data>
+  <data name="ADAttribute_userPrincipalName" xml:space="preserve">
+    <value>Logon name</value>
+  </data>
+  <data name="Error_PathNotValid" xml:space="preserve">
+    <value>Specified path is not valid.</value>
+  </data>
+  <data name="Step3_SpecifyConnection" xml:space="preserve">
+    <value>Please specify connection credentials (address, user name, password).</value>
+  </data>
+  <data name="Error_NoFilename" xml:space="preserve">
+    <value>You have to specify file name.</value>
+  </data>
+  <data name="Error_NoWritePermissions" xml:space="preserve">
+    <value>Insufficient permissions to write.</value>
+  </data>
+  <data name="Error_PathIsOccupied" xml:space="preserve">
+    <value>The path is already occupied.</value>
+  </data>
+  <data name="Error_PathMissingDirectory" xml:space="preserve">
+    <value>You have to specify directory.</value>
+  </data>
+  <data name="Error_PathNotExist" xml:space="preserve">
+    <value>Specified path doesn't exist.</value>
+  </data>
+  <data name="General_CMSRolename" xml:space="preserve">
+    <value>Kentico role name</value>
+  </data>
+  <data name="General_CMSUsername" xml:space="preserve">
+    <value>Kentico user name</value>
+  </data>
+  <data name="Log_SiteNotExist" xml:space="preserve">
+    <value>WARNING: Selected site '{0}' doesn't exist.</value>
+  </data>
+  <data name="Log_SkippingEmptyRolename" xml:space="preserve">
+    <value>WARNING: Impossible to import role with identifier {0} because of empty role name.</value>
+  </data>
+  <data name="Step2_OtherDB" xml:space="preserve">
+    <value>You are probably trying to connect to non-existent or non-Kentico database.</value>
+  </data>
+  <data name="Step4_UpdateSelectedImportNew" xml:space="preserve">
+    <value>Updates selected objects and imports objects that don't exist in Kentico (this setting is used for customized repetitive synchronization of Active Directory).</value>
+  </data>
+  <data name="Log_RoleIsNotDomain" xml:space="preserve">
+    <value>WARNING: Unable to edit existing role '{0}' because its not marked as domain.</value>
+  </data>
+  <data name="Log_UserIsNotDomain" xml:space="preserve">
+    <value>WARNING: Unable to edit existing user '{0}' because this user is not marked as domain.</value>
+  </data>
+  <data name="Wizard_CancelImportConfirmation" xml:space="preserve">
+    <value>Do you really want to cancel import?</value>
+  </data>
+  <data name="Wizard_CancelImportTitle" xml:space="preserve">
+    <value>Cancel import</value>
+  </data>
+  <data name="Log_ImportCanceled" xml:space="preserve">
+    <value>Import was canceled.</value>
+  </data>
+  <data name="Log_SkippingNonExistingObject" xml:space="preserve">
+    <value>WARNING: Skipping object which no longer exists in active directory.</value>
+  </data>
+  <data name="Rolename_Format_Guid" xml:space="preserve">
+    <value>Guid (16-byte number)</value>
+  </data>
+  <data name="Step5_RoleCodeNameFormat" xml:space="preserve">
+    <value>Role code name format:</value>
+  </data>
+  <data name="Console_LoadingObjectFromAD" xml:space="preserve">
+    <value>Loading all objects from Active directory.</value>
+  </data>
+  <data name="Log_ErrorParsingAttr" xml:space="preserve">
+    <value>WARNING: Error parsing property ({0}).</value>
+  </data>
+  <data name="Step6_SelectGroups" xml:space="preserve">
+    <value>Select groups to be imported:</value>
+  </data>
+  <data name="Log_ImportCompleteWithWarnings" xml:space="preserve">
+    <value>Import has finished with {0} warnings ({1}h {2}m {3}s).</value>
+  </data>
+  <data name="Step7_LoadingUsers" xml:space="preserve">
+    <value>Loading users...</value>
+  </data>
+  <data name="Step8_LoadingGroups" xml:space="preserve">
+    <value>Loading groups...</value>
+  </data>
+  <data name="Step8_ConflictsCaption" xml:space="preserve">
+    <value>Conflicting names</value>
+  </data>
+  <data name="Step8_ConflictsText" xml:space="preserve">
+    <value>Some conflicting group names were found. In order to successfully import all groups the role code name format should be 'Guid'. Click 'Yes' if you want to change role code name format automatically.</value>
+  </data>
+  <data name="Step2_SpecifyDBName" xml:space="preserve">
+    <value>You have to specify database name.</value>
+  </data>
+  <data name="Step2_SpecifyServerAddress" xml:space="preserve">
+    <value>You have to specify SQL server address.</value>
+  </data>
+  <data name="Error_DCConnectionException" xml:space="preserve">
+    <value>Unable to establish connection to domain controller. Please check your network connection and logon credentials.</value>
+  </data>
+  <data name="Error_LocalUserAccountException" xml:space="preserve">
+    <value>Current account is not a domain account. Please specify credentials manually.</value>
+  </data>
+  <data name="Error_NotAdministrator" xml:space="preserve">
+    <value>Application needs to be run under administrator account.</value>
+  </data>
+  <data name="Step11_ImportInProgress" xml:space="preserve">
+    <value>Import is in progress...</value>
+  </data>
+  <data name="Step2_EstablishConnection" xml:space="preserve">
+    <value>Establish connection</value>
+  </data>
+  <data name="Step2_ConnectionToDBSuccessfull" xml:space="preserve">
+    <value>Connection to correct version of Kentico database was successfully established.</value>
+  </data>
+  <data name="Step2_LoadingInstances" xml:space="preserve">
+    <value>Loading SQL instances...</value>
+  </data>
+  <data name="Step2_SelectDatabase" xml:space="preserve">
+    <value>You have to select database.</value>
+  </data>
+  <data name="Step2_SpecifyUsername" xml:space="preserve">
+    <value>You have to specify user name.</value>
+  </data>
+  <data name="Step4_ImportNewUsersOnlyFromSelectedRoles" xml:space="preserve">
+    <value>Import new users only from selected groups</value>
+  </data>
+  <data name="Log_SkippingDoesNotBelongToSelectedRole" xml:space="preserve">
+    <value>User '{0}' does not belong to any of selected roles and therefore is being skipped...</value>
+  </data>
+  <data name="Step4_ToolTipImportNewUsersOnlyFromSelectedRoles" xml:space="preserve">
+    <value>This setting ensures that newly imported users have to belong to at least one of the selected roles. Please note that this setting may override previous selection of users.</value>
+  </data>
+  <data name="Step5_ToolTipAdvanced" xml:space="preserve">
+    <value>Displays advanced binding editor (displays all attributes from user's schema, doesn't show friendly names etc.)</value>
+  </data>
+  <data name="Step5_ToolTipSimple" xml:space="preserve">
+    <value>Displays simplified binding editor (excludes some fields, displays friendly strings, etc.)</value>
+  </data>
+  <data name="Log_ValueTrimmed" xml:space="preserve">
+    <value>WARNING: The value of property '{0}' had to be trimmed because it exceeded the maximum length of {1} characters.</value>
+  </data>
+  <data name="Step5_ShowAllAttrs" xml:space="preserve">
+    <value>Show all attributes</value>
+  </data>
+  <data name="Log_GeneralWarning" xml:space="preserve">
+    <value>WARNING: {0}</value>
+  </data>
+  <data name="Log_SkippingExistingUser" xml:space="preserve">
+    <value>Skipping user '{0}' which already exists in the database.</value>
+  </data>
+  <data name="Error_WrongExtensionXML" xml:space="preserve">
+    <value>Import profile path has to end with '.xml' extension.</value>
+  </data>
+  <data name="Wizard_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Log_RoleNameNotUnique" xml:space="preserve">
+    <value>WARNING: Unable to import role '{0}' becouse a role with this code name already exists.</value>
+  </data>
+  <data name="Error_General" xml:space="preserve">
+    <value>Error occurred</value>
+  </data>
+  <data name="Step4_ImportAllUsersOnlyFromSelectedRoles" xml:space="preserve">
+    <value>Import all users from selected groups and ignore other users</value>
+  </data>
+</root>

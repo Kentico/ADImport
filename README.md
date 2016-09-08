@@ -8,4 +8,4 @@ Download the [latest release](https://github.com/Kentico/ADImport/releases/lates
 
 ## Contributing
 Want to improve the Kentico AD Import utility? Read the [contributing guidelines](https://github.com/Kentico/ADImport/blob/master/CONTRIBUTING.md).
- 
+
