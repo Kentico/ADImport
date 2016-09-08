@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<profile>
+  <settings>
+    <setting key="SQLServerAddress" value="" />
+    <setting key="SQLServerDatabase" value="" />
+    <setting key="SQLServerUsername" value="" />
+    <setting key="SQLServerPassword" value="" />
+    <setting key="SQLUseTrustedConnection" value="True" />
+    <setting key="ADControllerAddress" value="" />
+    <setting key="ADUseCurrentUserAccount" value="True" />
+    <setting key="ADUsername" value="" />
+    <setting key="ADPassword" value="" />
+    <setting key="ImportUsersType" value="UpdateSelectedImportNew" />
+    <setting key="ImportRolesType" value="UpdateSelectedImportNew" />
+    <setting key="UpdateObjectData" value="True" />
+    <setting key="UpdateMemberships" value="True" />
+    <setting key="DeleteNotExistingObjects" value="True" />
+    <setting key="LogImportProcess" value="False" />
+    <setting key="LogPath" value="" />
+    <setting key="UsernameFormat" value="UPN" />
+    <setting key="ConfigureAsCMSEditor" value="False" />
+    <setting key="RoleDisplayNameFormat" value="SAM" />
+    <setting key="RoleCodeNameFormat" value="Guid" />
+    <setting key="ImportRoleDescription" value="True" />
+    <setting key="ImportNow" value="False" />
+  </settings>
+  <properties>
+  </properties>
+  <sites>
+  </sites>
+  <objects>
+    <users>
+    </users>
+    <groups>
+    </groups>
+  </objects>
+</profile>
