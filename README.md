@@ -1,6 +1,6 @@
 # Kentico AD Import Utility
 
-The Kentico Active Directory Import Utility is a an application that allows importing of users and groups (roles) from Active Directory (AD) into Kentico. The application also provides a way to update already imported users and roles to their current status in the Active Directory domain.
+The Kentico Active Directory Import Utility is an application that allows importing of users and groups (roles) from Active Directory (AD) into Kentico. The application also provides a way to update already imported users and roles to their current status in the Active Directory domain.
 
 ## Get the application
 
