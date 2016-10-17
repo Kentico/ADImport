@@ -930,8 +930,8 @@ namespace ADImport
                 ImportProfileFilename = fileName;
                 if (File.Exists(ImportProfileFilename))
                 {
-                    using (Stream schemaStream = StreamWrapper.New(Assembly.GetExecutingAssembly().GetManifestResourceStream(
-                        GetManifestResourceName(typeof(ImportProfile), PROFILE_XSD))))
+                    using (var schemaStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(
+                        GetManifestResourceName(typeof(ImportProfile), PROFILE_XSD)))
                     {
                         // Set profile path
                         ImportProfileFilename = fileName;
@@ -940,7 +940,7 @@ namespace ADImport
                         XmlDocument profile = new XmlDocument();
 
                         // Load XML schema
-                        XmlSchema xmlSchema = XmlSchema.Read(schemaStream.SystemStream, xmlReaderSettings_ValidationEventHandler);
+                        XmlSchema xmlSchema = XmlSchema.Read(schemaStream, xmlReaderSettings_ValidationEventHandler);
 
                         // Initialize reader settings
                         XmlReaderSettings xmlReaderSettings = new XmlReaderSettings();
@@ -1312,18 +1312,21 @@ namespace ADImport
             byte[] initialVectorBytes = Encoding.ASCII.GetBytes(initialVector);
             byte[] plainTextBytes = Encoding.UTF8.GetBytes(plainText);
             byte[] keyBytes = Encoding.UTF8.GetBytes(password);
-            RijndaelManaged symmetricKey = new RijndaelManaged();
-            symmetricKey.Mode = CipherMode.CBC;
-            symmetricKey.Padding = PaddingMode.PKCS7;
-            ICryptoTransform encryptor = symmetricKey.CreateEncryptor(keyBytes, initialVectorBytes);
-            MemoryStream memStream = MemoryStream.New();
-            CryptoStream cryptoStream = new CryptoStream(memStream.SystemStream, encryptor, CryptoStreamMode.Write);
-            cryptoStream.Write(plainTextBytes, 0, plainTextBytes.Length);
-            cryptoStream.FlushFinalBlock();
-            byte[] cipherTextBytes = memStream.ToArray();
-            memStream.Close();
-            cryptoStream.Close();
-            return Convert.ToBase64String(cipherTextBytes);
+            using (RijndaelManaged symmetricKey = new RijndaelManaged())
+            {
+                symmetricKey.Mode = CipherMode.CBC;
+                symmetricKey.Padding = PaddingMode.PKCS7;
+                using (ICryptoTransform encryptor = symmetricKey.CreateEncryptor(keyBytes, initialVectorBytes))
+                using (System.IO.MemoryStream memStream = new System.IO.MemoryStream())
+                using (CryptoStream cryptoStream = new CryptoStream(memStream, encryptor, CryptoStreamMode.Write))
+                {
+                    cryptoStream.Write(plainTextBytes, 0, plainTextBytes.Length);
+                    cryptoStream.FlushFinalBlock();
+                    byte[] cipherTextBytes = memStream.ToArray();
+
+                    return Convert.ToBase64String(cipherTextBytes);
+                }
+            }
         }
 
 
@@ -1337,17 +1340,20 @@ namespace ADImport
             byte[] initialVectorBytes = Encoding.ASCII.GetBytes(initialVector);
             byte[] cipherTextBytes = Convert.FromBase64String(cipherText);
             byte[] keyBytes = Encoding.UTF8.GetBytes(password);
-            RijndaelManaged symmetricKey = new RijndaelManaged();
-            symmetricKey.Mode = CipherMode.CBC;
-            symmetricKey.Padding = PaddingMode.PKCS7;
-            ICryptoTransform decryptor = symmetricKey.CreateDecryptor(keyBytes, initialVectorBytes);
-            MemoryStream memStream = MemoryStream.New(cipherTextBytes);
-            CryptoStream cryptoStream = new CryptoStream(memStream.SystemStream, decryptor, CryptoStreamMode.Read);
-            byte[] plainTextBytes = new byte[cipherTextBytes.Length];
-            int byteCount = cryptoStream.Read(plainTextBytes, 0, plainTextBytes.Length);
-            memStream.Close();
-            cryptoStream.Close();
-            return Encoding.UTF8.GetString(plainTextBytes, 0, byteCount);
+            using (RijndaelManaged symmetricKey = new RijndaelManaged())
+            {
+                symmetricKey.Mode = CipherMode.CBC;
+                symmetricKey.Padding = PaddingMode.PKCS7;
+                using (ICryptoTransform decryptor = symmetricKey.CreateDecryptor(keyBytes, initialVectorBytes))
+                using (System.IO.MemoryStream memStream = new System.IO.MemoryStream(cipherTextBytes))
+                using (CryptoStream cryptoStream = new CryptoStream(memStream, decryptor, CryptoStreamMode.Read))
+                {
+                    byte[] plainTextBytes = new byte[cipherTextBytes.Length];
+                    int byteCount = cryptoStream.Read(plainTextBytes, 0, plainTextBytes.Length);
+
+                    return Encoding.UTF8.GetString(plainTextBytes, 0, byteCount);
+                }
+            }
         }
 
         #endregion
