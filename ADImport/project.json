@@ -1,0 +1,14 @@
+{
+    "dependencies": {
+        "Kentico.Libraries": "10.0.0-*",
+        "Kentico.Libraries.Dependencies": "10.0.0-*",
+        "Microsoft.WindowsAPICodePack-Core": "1.1.0.0",
+        "Microsoft.WindowsAPICodePack-Shell": "1.1.0.0"
+    },
+    "frameworks": {
+        "net45": { }
+    },
+    "runtimes": {
+        "win": { }
+    }
+}
