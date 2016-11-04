@@ -142,6 +142,9 @@ publish/
 !**/packages/build/
 # Uncomment if necessary however generally it will be regenerated when needed
 #!**/packages/repositories.config
+# exclude project.json specific files
+*.lock.json
+*.nuget.targets
 
 # Windows Azure Build Output
 csx/
