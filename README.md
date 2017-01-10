@@ -9,8 +9,7 @@ The Kentico Active Directory Import Utility is an application that allows import
 Download the [latest release](https://github.com/Kentico/ADImport/releases/latest). 
 
 1. Unpack the zip package.
-2. Run ```build.cmd```.
-3. Run ```.\bin\ADImport.exe```.
+2. Run ```ADImport.exe```.
 
 ## Learn more
 For additional information about using the Kentico AD Import Utility, see the [Wiki pages](https://github.com/Kentico/ADImport/wiki).
