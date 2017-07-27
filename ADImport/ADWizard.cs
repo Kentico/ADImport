@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 using WinAppFoundation;
 
 using WinFormsFramework;
-
-using Microsoft.WindowsAPICodePack.Taskbar;
 
 namespace ADImport
 {
@@ -19,6 +17,74 @@ namespace ADImport
     /// </summary>
     public partial class ADWizard : Form
     {
+        internal static class TaskbarProgress
+        {
+            internal enum TaskbarState
+            {
+                NoProgress = 0,
+                Indeterminate = 0x1,
+                Normal = 0x2,
+                Error = 0x4,
+                Paused = 0x8
+            }
+
+            [ComImport()]
+            [Guid("ea1afb91-9e28-4b86-90e9-9e9f8a5eefaf")]
+            [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+            private interface ITaskbarList3
+            {
+                // ITaskbarList
+                [PreserveSig]
+                void HrInit();
+
+                [PreserveSig]
+                void AddTab(IntPtr hwnd);
+
+                [PreserveSig]
+                void DeleteTab(IntPtr hwnd);
+
+                [PreserveSig]
+                void ActivateTab(IntPtr hwnd);
+
+                [PreserveSig]
+                void SetActiveAlt(IntPtr hwnd);
+
+                [PreserveSig]
+                void MarkFullscreenWindow(IntPtr hwnd, [MarshalAs(UnmanagedType.Bool)] bool fFullscreen);
+
+                [PreserveSig]
+                void SetProgressValue(IntPtr hwnd, UInt64 ullCompleted, UInt64 ullTotal);
+
+                [PreserveSig]
+                void SetProgressState(IntPtr hwnd, TaskbarState state);
+            }
+
+            [ComImport()]
+            [Guid("56fdf344-fd6d-11d0-958a-006097c9a090")]
+            [ClassInterface(ClassInterfaceType.None)]
+            private class TaskbarInstance
+            {
+            }
+
+            private static readonly ITaskbarList3 Taskbar = (ITaskbarList3)new TaskbarInstance();
+            private static readonly bool IsTaskbarSupported = Environment.OSVersion.Version >= new Version(6, 1);
+
+            internal static void SetState(IntPtr windowHandle, TaskbarState taskbarState)
+            {
+                if (IsTaskbarSupported)
+                {
+                    try
+                    {
+                        Taskbar.SetProgressState(windowHandle, taskbarState);
+                    }
+                    catch
+                    {
+                    }
+                }
+            }
+        }
+
+
         #region "Private variables & constants"
 
         /// <summary>
@@ -34,7 +100,7 @@ namespace ADImport
 
         private static string mSupportedVersion = null;
         private static string mFileVersionInfo = null;
-        
+
         #endregion
 
 
@@ -324,7 +390,7 @@ namespace ADImport
         private async void MakeStep(bool forward, bool validate)
         {
             int newStep = forward ? currentStep + 1 : currentStep - 1;
-            
+
             // Adjust step
             switch (newStep)
             {
@@ -455,23 +521,13 @@ namespace ADImport
                     footerButtons.AsyncActionFinish();
                 }
 
-                try
-                {
-                    // Animation in taskbar for Windows 7
-                    if (TaskbarManager.IsPlatformSupported)
-                    {
-                        TaskbarProgressBarState barType = TaskbarProgressBarState.NoProgress;
-                        if (wait.Value)
-                        {
-                            barType = TaskbarProgressBarState.Indeterminate;
-                        }
-                        TaskbarManager.Instance.SetProgressState(barType);
-                    }
-                }
-                catch (Exception)
-                {
-                }
+                var taskbarState = wait.Value
+                    ? TaskbarProgress.TaskbarState.Indeterminate
+                    : TaskbarProgress.TaskbarState.NoProgress;
+
+                TaskbarProgress.SetState(Handle, taskbarState);
             }
+
             lblState.Text = !string.IsNullOrEmpty(message) ? message : string.Empty;
             ButtonNext.Focus();
         }
