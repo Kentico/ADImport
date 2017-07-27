@@ -10,8 +10,6 @@ using WinAppFoundation;
 
 using WinFormsFramework;
 
-using Microsoft.WindowsAPICodePack.Taskbar;
-
 namespace ADImport
 {
     /// <summary>
@@ -454,24 +452,8 @@ namespace ADImport
                 {
                     footerButtons.AsyncActionFinish();
                 }
-
-                try
-                {
-                    // Animation in taskbar for Windows 7
-                    if (TaskbarManager.IsPlatformSupported)
-                    {
-                        TaskbarProgressBarState barType = TaskbarProgressBarState.NoProgress;
-                        if (wait.Value)
-                        {
-                            barType = TaskbarProgressBarState.Indeterminate;
-                        }
-                        TaskbarManager.Instance.SetProgressState(barType);
-                    }
-                }
-                catch (Exception)
-                {
-                }
             }
+
             lblState.Text = !string.IsNullOrEmpty(message) ? message : string.Empty;
             ButtonNext.Focus();
         }
