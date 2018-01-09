@@ -23,7 +23,6 @@ using File = CMS.IO.File;
 using FileAccess = CMS.IO.FileAccess;
 using FileMode = CMS.IO.FileMode;
 using FileStream = CMS.IO.FileStream;
-using IOExceptions = System.IO;
 
 
 namespace ADImport
@@ -40,7 +39,7 @@ namespace ADImport
         /// </summary>
         public delegate void SaveFileHandler();
 
-        private static event SaveFileHandler SaveFileEvent = null;
+        private static event SaveFileHandler SaveFileEvent;
 
         private static int warnings;
 
@@ -135,7 +134,7 @@ namespace ADImport
                 {
                     FormInfo ufi = new FormInfo(DataClassInfoProvider.GetDataClassInfo("cms.user").ClassFormDefinition);
                     FormInfo usfi = new FormInfo(DataClassInfoProvider.GetDataClassInfo("cms.usersettings").ClassFormDefinition);
-                    ufi.CombineWithForm(usfi, false, null);
+                    ufi.CombineWithForm(usfi, false);
                     mUserFormInfo = ufi;
                 }
                 return mUserFormInfo;
@@ -224,7 +223,7 @@ namespace ADImport
             // Create or overwrite XML with import profile
             FileStream importProfile = File.Open(ImportProfile.ImportProfileFilename, FileMode.Create, FileAccess.Write);
             // Create new instance of XML text writer
-            XmlTextWriter writer = new XmlTextWriter(importProfile.SystemStream, Encoding.Default);
+            XmlTextWriter writer = new XmlTextWriter(importProfile, Encoding.Default);
             XmlDocument document = new XmlDocument();
             // Load XML document
             document.LoadXml(ImportProfile.ImportProfileXML);
@@ -527,7 +526,7 @@ namespace ADImport
                                             {
                                                 try
                                                 {
-                                                    string attrValue = null;
+                                                    string attrValue;
 
                                                     // Get string representation of the attribute
                                                     if (attribute is float || attribute is double || attribute is decimal)
