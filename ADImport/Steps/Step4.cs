@@ -401,7 +401,7 @@ namespace ADImport
                         KeyValuePair<string, List<Guid>> importedSite = (KeyValuePair<string, List<Guid>>)sitesEnumerator.Current;
 
                         // Clear hash tables
-                        AbstractProvider.ClearHashtables(SiteInfo.OBJECT_TYPE, true);
+                        ProviderHelper.ClearHashtables(SiteInfo.OBJECT_TYPE, true);
                         
                         // Get info object
                         SiteInfo site = SiteInfoProvider.GetSiteInfo(importedSite.Key);
