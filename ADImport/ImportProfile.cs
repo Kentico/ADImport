@@ -21,9 +21,6 @@ namespace ADImport
     {
         #region "Constants"
 
-        private const string initialVector = "]pouuug]!NqpP':S";
-        private const string password = "In&eHNb:d`+07Gx2";
-
         /// <summary>
         /// Extension of import profile.
         /// </summary>
@@ -978,18 +975,7 @@ namespace ADImport
                                             break;
 
                                         case "SQLServerPassword":
-                                            string sqlPassword = ValidationHelper.GetString(value.ToString(), string.Empty);
-                                            try
-                                            {
-                                                // Try to decrypt password
-                                                SQLServerPassword = DecryptPassword(sqlPassword);
-                                            }
-                                            catch
-                                            {
-                                                // Password is probably in plaintext form
-                                                SQLServerPassword = sqlPassword;
-                                            }
-
+                                            SQLServerPassword = ValidationHelper.GetString(value.ToString(), string.Empty);
                                             break;
 
                                         case "SQLUseTrustedConnection":
@@ -1009,17 +995,7 @@ namespace ADImport
                                             break;
 
                                         case "ADPassword":
-                                            string adPassword = ValidationHelper.GetString(value.ToString(), string.Empty);
-                                            try
-                                            {
-                                                // Try to decrypt password
-                                                ADPassword = DecryptPassword(adPassword);
-                                            }
-                                            catch
-                                            {
-                                                // Password is probably in plaintext form
-                                                ADPassword = adPassword;
-                                            }
+                                            ADPassword = ValidationHelper.GetString(value.ToString(), string.Empty);
                                             break;
 
                                         case "ImportUsersType":
@@ -1205,12 +1181,12 @@ namespace ADImport
             sb.Append(string.Format(settingStr, "SQLServerAddress", HTMLHelper.HTMLEncode(SQLServerAddress)));
             sb.Append(string.Format(settingStr, "SQLServerDatabase", HTMLHelper.HTMLEncode(SQLServerDatabase)));
             sb.Append(string.Format(settingStr, "SQLServerUsername", HTMLHelper.HTMLEncode(SQLServerUsername)));
-            sb.Append(string.Format(settingStr, "SQLServerPassword", EncryptPassword(SQLServerPassword)));
+            sb.Append(string.Format(settingStr, "SQLServerPassword", SQLServerPassword));
             sb.Append(string.Format(settingStr, "SQLUseTrustedConnection", SQLUseTrustedConnection));
             sb.Append(string.Format(settingStr, "ADControllerAddress", ADControllerAddress));
             sb.Append(string.Format(settingStr, "ADUseCurrentUserAccount", ADUseCurrentUserAccount));
             sb.Append(string.Format(settingStr, "ADUsername", HTMLHelper.HTMLEncode(ADUsername)));
-            sb.Append(string.Format(settingStr, "ADPassword", EncryptPassword(ADPassword)));
+            sb.Append(string.Format(settingStr, "ADPassword", ADPassword));
             sb.Append(string.Format(settingStr, "ImportUsersType", ImportUsersType));
             sb.Append(string.Format(settingStr, "ImportRolesType", ImportRolesType));
             sb.Append(string.Format(settingStr, "UpdateObjectData", UpdateObjectData));
@@ -1294,65 +1270,6 @@ namespace ADImport
             if (OnSQLServerChanged != null)
             {
                 OnSQLServerChanged();
-            }
-        }
-
-        #endregion
-
-
-        #region "Encryption"
-
-        /// <summary>
-        /// Encrypts given string using AES encryption.
-        /// </summary>
-        /// <param name="plainText">Text to encrypt</param>
-        /// <returns>Encrypted base64 string</returns>
-        private static string EncryptPassword(string plainText)
-        {
-            byte[] initialVectorBytes = Encoding.ASCII.GetBytes(initialVector);
-            byte[] plainTextBytes = Encoding.UTF8.GetBytes(plainText);
-            byte[] keyBytes = Encoding.UTF8.GetBytes(password);
-            using (RijndaelManaged symmetricKey = new RijndaelManaged())
-            {
-                symmetricKey.Mode = CipherMode.CBC;
-                symmetricKey.Padding = PaddingMode.PKCS7;
-                using (ICryptoTransform encryptor = symmetricKey.CreateEncryptor(keyBytes, initialVectorBytes))
-                using (System.IO.MemoryStream memStream = new System.IO.MemoryStream())
-                using (CryptoStream cryptoStream = new CryptoStream(memStream, encryptor, CryptoStreamMode.Write))
-                {
-                    cryptoStream.Write(plainTextBytes, 0, plainTextBytes.Length);
-                    cryptoStream.FlushFinalBlock();
-                    byte[] cipherTextBytes = memStream.ToArray();
-
-                    return Convert.ToBase64String(cipherTextBytes);
-                }
-            }
-        }
-
-
-        /// <summary>
-        /// Decrypts given base64 string using AES decryption.
-        /// </summary>
-        /// <param name="cipherText">Encrypted base64 string</param>
-        /// <returns>Plaintext string</returns>
-        private static string DecryptPassword(string cipherText)
-        {
-            byte[] initialVectorBytes = Encoding.ASCII.GetBytes(initialVector);
-            byte[] cipherTextBytes = Convert.FromBase64String(cipherText);
-            byte[] keyBytes = Encoding.UTF8.GetBytes(password);
-            using (RijndaelManaged symmetricKey = new RijndaelManaged())
-            {
-                symmetricKey.Mode = CipherMode.CBC;
-                symmetricKey.Padding = PaddingMode.PKCS7;
-                using (ICryptoTransform decryptor = symmetricKey.CreateDecryptor(keyBytes, initialVectorBytes))
-                using (System.IO.MemoryStream memStream = new System.IO.MemoryStream(cipherTextBytes))
-                using (CryptoStream cryptoStream = new CryptoStream(memStream, decryptor, CryptoStreamMode.Read))
-                {
-                    byte[] plainTextBytes = new byte[cipherTextBytes.Length];
-                    int byteCount = cryptoStream.Read(plainTextBytes, 0, plainTextBytes.Length);
-
-                    return Encoding.UTF8.GetString(plainTextBytes, 0, byteCount);
-                }
             }
         }
 
