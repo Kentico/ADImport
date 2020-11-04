@@ -366,7 +366,7 @@ namespace ADImport
 
 
         private void BindSites()
-        {
+        {        
             // Create new datatable
             DataTable sitesTable = new DataTable();
 
@@ -381,7 +381,7 @@ namespace ADImport
             sitesTable.Columns.Add(codeNameCol);
 
             // Bind DataGridView to CMS sites
-            DataSet sites = SiteInfoProvider.GetSites()
+            DataSet sites = SiteInfo.Provider.Get()
                 .OrderBy("SiteDisplayName")
                 .Columns("SiteDisplayName, SiteName");
 
@@ -404,7 +404,7 @@ namespace ADImport
                         ProviderHelper.ClearHashtables(SiteInfo.OBJECT_TYPE, true);
                         
                         // Get info object
-                        SiteInfo site = SiteInfoProvider.GetSiteInfo(importedSite.Key);
+                        SiteInfo site = SiteInfo.Provider.Get(importedSite.Key);
 
                         // If site is not present
                         if (site == null)

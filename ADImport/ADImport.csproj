@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ADImport</RootNamespace>
     <AssemblyName>ADImport</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <ApplicationIcon>Resources\kentico.ico</ApplicationIcon>
@@ -379,11 +379,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="AWSSDK.S3">
-      <Version>3.1.9</Version>
-    </PackageReference>
-    <PackageReference Include="Kentico.Libraries">
-      <Version>12.0.0</Version>
+    <PackageReference Include="Kentico.Xperience.Libraries">
+      <Version>13.0.0</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
