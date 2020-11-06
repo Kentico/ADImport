@@ -205,7 +205,7 @@ namespace ADImport
 
             if (cmbSites.SelectedValue != null)
             {
-                SiteInfo si = SiteInfo.Provider.Get(cmbSites.SelectedValue.ToString());//SiteInfoProvider.GetSiteInfo(cmbSites.SelectedValue.ToString());
+                SiteInfo si = SiteInfo.Provider.Get(cmbSites.SelectedValue.ToString());
                 if (si != null)
                 {
                     DataSet roles = RoleInfoProvider.GetAllRoles(si.SiteID, false);

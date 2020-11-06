@@ -2,8 +2,8 @@
 using System.Runtime.InteropServices;
 using System.Security;
 
-[assembly: AssemblyTitle("Kentico AD Import")]
-[assembly: AssemblyDescription("Kentico AD Import")]
+[assembly: AssemblyTitle("Kentico Xperience AD Import")]
+[assembly: AssemblyDescription("Kentico Xperience AD Import")]
 [assembly: AssemblyCompany("Kentico software s.r.o.")]
 [assembly: AssemblyProduct("ADImport")]
 [assembly: AssemblyCopyright("Copyright (c) 2016 Kentico software s.r.o.")]

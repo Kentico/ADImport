@@ -941,7 +941,6 @@ namespace ADImport
         /// <param name="userRoles">Collection of <see cref="RoleInfo"/> objects user is in – infos are supposed to contain RoleGUID and RoleIsDomain.</param>
         private static void RemoveExcessiveMemberships(IPrincipalObject user, UserInfo userInfo, ISet<RoleInfo> userRoles)
         {
-
             // Add message to log
             MessageLog.LogEvent(ResHelper.GetString("Log_UpdatingMemberships", userInfo.UserName));
 
@@ -971,7 +970,6 @@ namespace ADImport
         /// <param name="rolesChanged">Records removed roles for CMS event log.</param>
         private static void DeleteNonExistingObjects(CumulatedChanges usersChanged, CumulatedChanges rolesChanged)
         {
-
             // Remove CMS (domain) roles that do not exist in AD anymore
             IQueryable<RoleInfo> excessiveRoles = RoleInfo.Provider
                 .Get()
