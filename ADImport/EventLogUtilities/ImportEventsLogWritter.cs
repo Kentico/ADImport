@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
+using CMS.Core;
 using CMS.EventLog;
 
 namespace ADImport
@@ -167,9 +168,9 @@ namespace ADImport
                 + namesFormatted;
 
             // Write down the log
-            EventLogProvider.LogInformation(
-                eventProperties.Source,
-                eventProperties.EventCode,
+            Service.Resolve<IEventLogService>().LogInformation(
+                eventProperties.Source, 
+                eventProperties.EventCode, 
                 eventDescription);
         }
     }

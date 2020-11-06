@@ -24,7 +24,6 @@ using FileAccess = CMS.IO.FileAccess;
 using FileMode = CMS.IO.FileMode;
 using FileStream = CMS.IO.FileStream;
 
-
 namespace ADImport
 {
     /// <summary>
@@ -371,7 +370,7 @@ namespace ADImport
 
                     foreach (var siteInfo in ImportProfile
                         .Sites
-                        .Select(site => SiteInfoProvider.GetSiteInfo(site.Key))
+                        .Select(site => SiteInfo.Provider.Get(site.Key))
                         .Where(info => info != null))
                     {
                         foreach (Guid groupGuid in ImportProfile.Groups)
@@ -468,7 +467,7 @@ namespace ADImport
                         if (!String.IsNullOrEmpty(domainName))
                         {
                             // Get user info object
-                            UserInfo userInfo = (UserInfoProvider.GetUserInfoByGUID((Guid)user.Identifier) ?? UserInfoProvider.GetUserInfo(domainName));
+                            UserInfo userInfo = (UserInfo.Provider.Get((Guid)user.Identifier) ?? UserInfo.Provider.Get(domainName));
                             bool newUser = (userInfo == null);
 
                             // When is desired to import new users only from selected roles
@@ -575,7 +574,7 @@ namespace ADImport
                                             // User name is used, because AD accounts does not have to have first and/or given name specified (e.g. Guest, …)
                                             usersChanged.Add(userInfo.UserGUID, userInfo.UserName, newUser ? ChangeActionEnum.Created : ChangeActionEnum.Updated);
 
-                                            UserInfoProvider.SetUserInfo(userInfo);
+                                            UserInfo.Provider.Set(userInfo);
                                         }
                                     }
                                     else
@@ -620,11 +619,11 @@ namespace ADImport
                             // Load all user roles from DB
                             var userRoles = new HashSet<RoleInfo>(newUser
                                 ? Enumerable.Empty<RoleInfo>() // non-existing user cannot be present in a single role (in DB)
-                                : RoleInfoProvider
-                                    .GetRoles()
+                                : RoleInfo.Provider
+                                    .Get()
                                     .WhereIn("RoleID",
-                                        UserRoleInfoProvider
-                                            .GetUserRoles()
+                                        UserRoleInfo.Provider
+                                            .Get()
                                             .WhereEquals("UserID", userInfo.UserID)
                                             .Column("RoleID"))
                                     .Columns("RoleID", "RoleGUID", "RoleDisplayName", "RoleIsDomain"));
@@ -634,13 +633,13 @@ namespace ADImport
                             foreach (KeyValuePair<string, List<Guid>> site in ImportProfile.Sites)
                             {
                                 // Get site info object
-                                var siteInfo = SiteInfoProvider.GetSiteInfo(site.Key);
+                                var siteInfo = SiteInfo.Provider.Get(site.Key);
                                 if (siteInfo != null)
                                 {
                                     try
                                     {
                                         // Add user to this site
-                                        UserSiteInfoProvider.AddUserToSite(userInfo, siteInfo);
+                                        UserSiteInfo.Provider.Add(userInfo.UserID, siteInfo.SiteID);
                                     }
                                     catch (Exception ex)
                                     {
@@ -753,8 +752,9 @@ namespace ADImport
         /// <param name="groupGuid">AD group identifier</param>
         private static void DeleteRole(SiteInfo siteInfo, Guid groupGuid)
         {
+
             // Try to get role by GUID and site id
-            RoleInfo role = RoleInfoProvider.GetRoleInfoByGUID(groupGuid, siteInfo.SiteID);
+            RoleInfo role = RoleInfo.Provider.Get().OnSite(siteInfo.SiteID).WhereEquals("RoleGuid", groupGuid).FirstOrDefault();
 
             // If role is domain role
             if ((role != null) && role.RoleIsDomain)
@@ -762,7 +762,7 @@ namespace ADImport
                 MessageLog.LogEvent(ResHelper.GetString("Log_DeletingRole", role.RoleDisplayName));
 
                 // Delete role
-                RoleInfoProvider.DeleteRoleInfo(role);
+                RoleInfo.Provider.Delete(role);
             }
         }
 
@@ -774,14 +774,15 @@ namespace ADImport
         /// <returns>TRUE if group should be preselected (group does not exist in at least one site)</returns>
         public static bool RoleExists(Guid groupGuid)
         {
+
             // Preselect roles
             foreach (string siteName in ImportProfile.Sites.Keys)
             {
                 // If role is missing in any site, select it
-                SiteInfo siteInfo = SiteInfoProvider.GetSiteInfo(siteName);
+                SiteInfo siteInfo = SiteInfo.Provider.Get(siteName);
                 if (siteInfo != null)
                 {
-                    RoleInfo roleInfo = RoleInfoProvider.GetRoleInfoByGUID(groupGuid, siteInfo.SiteID);
+                    RoleInfo roleInfo = RoleInfo.Provider.Get().OnSite(siteInfo.SiteID).WhereEquals("RoleGuid", groupGuid).FirstOrDefault();
                     if (roleInfo != null)
                     {
                         return true;
@@ -799,7 +800,7 @@ namespace ADImport
         /// <returns>TRUE if user exists</returns>
         public static bool UserExists(Guid userGuid)
         {
-            UserInfo userInfo = UserInfoProvider.GetUserInfoByGUID(userGuid);
+            UserInfo userInfo = UserInfo.Provider.Get(userGuid);
             return (userInfo != null);
         }
 
@@ -833,17 +834,18 @@ namespace ADImport
         /// <param name="siteInfo">Site info object</param>
         private static void SetMemberships(IPrincipalObject user, UserInfo userInfo, SiteInfo siteInfo, ICollection<RoleInfo> userRoles, KeyValuePair<string, List<Guid>> site)
         {
+
             var roleGuids = Enumerable.Empty<Guid>()
                 .Union(site.Value)      // CMS role GUIDs user should be in
                 .Union(user.Groups);    // AD role GUIDs user should be in (groups in which the user participates in AD and are imported to CMS)
 
             foreach (RoleInfo roleInfo in roleGuids
                 .Except(userRoles.Select(userRole => userRole.RoleGUID))
-                .Select(groupId => RoleInfoProvider.GetRoleInfoByGUID(groupId, siteInfo.SiteID))
+                .Select(groupId => RoleInfo.Provider.Get().OnSite(siteInfo.SiteID).WhereEquals("RoleGuid", groupId).FirstOrDefault())
                 .Where(roleInfo => (roleInfo != null)))
             {
                 // Add user to the role
-                UserRoleInfoProvider.AddUserToRole(userInfo, roleInfo);
+                UserRoleInfo.Provider.Add(userInfo.UserID, roleInfo.RoleID);
 
                 // Update collection of user roles (to reflect real roles user is in)
                 userRoles.Add(roleInfo);
@@ -866,9 +868,9 @@ namespace ADImport
         private static void ImportRole(string roleName, string displayName, int siteId, string roleDescription, Guid roleGuid, bool updateExistingObject, CumulatedChanges rolesChanged)
         {
             // Try to get role info by GUID, by GUID in code name, by name
-            var roleInfo = RoleInfoProvider.GetRoleInfoByGUID(roleGuid, siteId)
-                                ?? RoleInfoProvider.GetRoleInfoByGUID(ValidationHelper.GetGuid(roleName, Guid.Empty), siteId)
-                                ?? RoleInfoProvider.GetRoleInfo(roleName, siteId);
+            var roleInfo = RoleInfo.Provider.Get().OnSite(siteId).WhereEquals("RoleGuid", roleGuid).FirstOrDefault()
+                                ?? RoleInfo.Provider.Get().OnSite(siteId).WhereEquals("RoleGuid", ValidationHelper.GetGuid(roleName, Guid.Empty)).FirstOrDefault()
+                                ?? RoleInfo.Provider.Get(roleName, siteId);
             var newRole = roleInfo == null;
 
             if (newRole)
@@ -915,7 +917,7 @@ namespace ADImport
                     rolesChanged.Add(roleInfo.RoleGUID, roleInfo.RoleDisplayName, newRole ? ChangeActionEnum.Created : ChangeActionEnum.Updated);
 
                     // Store role into database
-                    RoleInfoProvider.SetRoleInfo(roleInfo);
+                    RoleInfo.Provider.Set(roleInfo);
                 }
                 catch (CodeNameNotUniqueException)
                 {
@@ -949,7 +951,8 @@ namespace ADImport
                 .Where(userRole => !user.IsPrincipalInGroup(userRole.RoleGUID)))
             {
                 // Remove user from CMS role
-                UserRoleInfoProvider.DeleteUserRoleInfo(userInfo, roleInfo);
+                var userRole = UserRoleInfo.Provider.Get(userInfo.UserID, roleInfo.RoleID);
+                UserRoleInfo.Provider.Delete(userRole);
 
                 // Store removed roles
                 removedRoles.Add(roleInfo);
@@ -968,8 +971,8 @@ namespace ADImport
         private static void DeleteNonExistingObjects(CumulatedChanges usersChanged, CumulatedChanges rolesChanged)
         {
             // Remove CMS (domain) roles that do not exist in AD anymore
-            IQueryable<RoleInfo> excessiveRoles = RoleInfoProvider
-                .GetRoles()
+            IQueryable<RoleInfo> excessiveRoles = RoleInfo.Provider
+                .Get()
                 .WhereTrue("RoleIsDomain")
                 .WhereNotEquals("RoleGUID", Guid.Empty)
                 .WhereGreaterThan("RoleID", 0)
@@ -979,7 +982,7 @@ namespace ADImport
             foreach (var role in excessiveRoles)
             {
                 // Delete role
-                RoleInfoProvider.DeleteRoleInfo(role.RoleID);
+                RoleInfo.Provider.Delete(role);
 
                 // Store deleted role GUID and name for EventLog
                 rolesChanged.Add(role.RoleGUID, role.RoleDisplayName, ChangeActionEnum.Deleted);
@@ -989,8 +992,8 @@ namespace ADImport
             }
 
             // Remove CMS (domain) users that do not exist in AD anymore
-            IQueryable<UserInfo> excessiveUsers = UserInfoProvider
-                .GetUsers()
+            IQueryable<UserInfo> excessiveUsers = UserInfo.Provider
+                .Get()
                 .WhereTrue("UserIsDomain")
                 .WhereNotEquals("UserGUID", Guid.Empty)
                 .WhereGreaterThan("UserID", 0)
@@ -1000,7 +1003,7 @@ namespace ADImport
             foreach (var user in excessiveUsers)
             {
                 // Delete user
-                UserInfoProvider.DeleteUser(user.UserID);
+                UserInfo.Provider.Delete(user);
 
                 // Store deleted user GUID and name for EventLog
                 usersChanged.Add(user.UserGUID, user.UserName, ChangeActionEnum.Deleted);

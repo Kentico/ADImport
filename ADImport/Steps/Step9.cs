@@ -128,7 +128,7 @@ namespace ADImport
         {
             if (ImportProfile.Sites.Count > 0)
             {
-                DataSet sites = SiteInfoProvider.GetSites()
+                DataSet sites = SiteInfo.Provider.Get()
                     .WhereIn("SiteName", ImportProfile.Sites.Keys)
                     .OrderBy("SiteDisplayName")
                     .Columns("SiteID, SiteName, SiteDisplayName, SiteGUID");
@@ -194,7 +194,7 @@ namespace ADImport
 
 
         private void BindRoles()
-        {
+        { 
             // Create new datatable
             DataTable rolesTable = new DataTable();
 
@@ -205,10 +205,10 @@ namespace ADImport
 
             if (cmbSites.SelectedValue != null)
             {
-                SiteInfo si = SiteInfoProvider.GetSiteInfo(cmbSites.SelectedValue.ToString());
+                SiteInfo si = SiteInfo.Provider.Get(cmbSites.SelectedValue.ToString());
                 if (si != null)
                 {
-                    DataSet roles = RoleInfoProvider.GetAllRoles(si.SiteID, false, false);
+                    DataSet roles = RoleInfoProvider.GetAllRoles(si.SiteID, false);
                     if (!DataHelper.DataSourceIsEmpty(roles))
                     {
                         foreach (DataRow role in roles.Tables[0].Rows)

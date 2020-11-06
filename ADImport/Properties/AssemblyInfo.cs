@@ -2,8 +2,8 @@
 using System.Runtime.InteropServices;
 using System.Security;
 
-[assembly: AssemblyTitle("Kentico AD Import")]
-[assembly: AssemblyDescription("Kentico AD Import")]
+[assembly: AssemblyTitle("Kentico Xperience AD Import")]
+[assembly: AssemblyDescription("Kentico Xperience AD Import")]
 [assembly: AssemblyCompany("Kentico software s.r.o.")]
 [assembly: AssemblyProduct("ADImport")]
 [assembly: AssemblyCopyright("Copyright (c) 2016 Kentico software s.r.o.")]
@@ -14,6 +14,6 @@ using System.Security;
 [assembly: AllowPartiallyTrustedCallers]
 [assembly: SecurityRules(SecurityRuleSet.Level1)]
 
-[assembly: AssemblyVersion("12.0.0.0")]
-[assembly: AssemblyFileVersion("12.0.0.0")]
-[assembly: AssemblyInformationalVersion("12.0.0")]
+[assembly: AssemblyVersion("13.0.0.0")]
+[assembly: AssemblyFileVersion("13.0.0.0")]
+[assembly: AssemblyInformationalVersion("13.0.0")]

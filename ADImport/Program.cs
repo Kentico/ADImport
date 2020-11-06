@@ -166,6 +166,9 @@ namespace ADImport
             // Launch windows form application
             else
             {
+                // Preinitialize CMS context
+                CMSApplication.PreInit();
+
                 // Initialize application
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
