@@ -763,7 +763,7 @@ namespace ADImport.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kentico role name.
+        ///   Looks up a localized string similar to Xperience role name.
         /// </summary>
         internal static string General_CMSRolename {
             get {
@@ -772,7 +772,7 @@ namespace ADImport.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kentico user name.
+        ///   Looks up a localized string similar to Xperience user name.
         /// </summary>
         internal static string General_CMSUsername {
             get {
@@ -1258,7 +1258,7 @@ namespace ADImport.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This wizard will guide you through process of importing data from Active Directory to Kentico. You can select users and groups to be imported defining additional settings like user fields mapping, Kentico roles assignment, save profile for future usage etc..
+        ///   Looks up a localized string similar to This wizard will guide you through process of importing data from Active Directory to Xperience. You can select users and groups to be imported defining additional settings like user fields mapping, Xperience roles assignment, save profile for future usage etc..
         /// </summary>
         internal static string Step1_Intro {
             get {
@@ -1330,7 +1330,7 @@ namespace ADImport.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Checking Kentico version....
+        ///   Looks up a localized string similar to Checking Xperience version....
         /// </summary>
         internal static string Step2_CheckingVersion {
             get {
@@ -1348,7 +1348,7 @@ namespace ADImport.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Connection to correct version of Kentico database was successfully established..
+        ///   Looks up a localized string similar to Connection to correct version of Xperience database was successfully established..
         /// </summary>
         internal static string Step2_ConnectionToDBSuccessfull {
             get {
@@ -1393,7 +1393,7 @@ namespace ADImport.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You are probably trying to connect to non-existent or non-Kentico database..
+        ///   Looks up a localized string similar to You are probably trying to connect to non-existent or non-Xperience database..
         /// </summary>
         internal static string Step2_OtherDB {
             get {
@@ -1492,7 +1492,7 @@ namespace ADImport.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Version of selected Kentico database should be {0} (current database version is {1})..
+        ///   Looks up a localized string similar to Version of selected Xperience database should be {0} (current database version is {1})..
         /// </summary>
         internal static string Step2_WrongVersion {
             get {
@@ -1690,7 +1690,7 @@ namespace ADImport.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Updates selected objects and imports objects that don&apos;t exist in Kentico (this setting is used for customized repetitive synchronization of Active Directory)..
+        ///   Looks up a localized string similar to Updates selected objects and imports objects that don&apos;t exist in Xperience (this setting is used for customized repetitive synchronization of Active Directory)..
         /// </summary>
         internal static string Step4_UpdateSelectedImportNew {
             get {
@@ -1789,7 +1789,7 @@ namespace ADImport.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Configure new users as Kentico editors:.
+        ///   Looks up a localized string similar to Configure new users as Xperience editors:.
         /// </summary>
         internal static string Step5_UserCMSEditor {
             get {
@@ -1852,7 +1852,7 @@ namespace ADImport.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Display name/ Kentico user name:.
+        ///   Looks up a localized string similar to Display name/ Xperience user name:.
         /// </summary>
         internal static string Step7_DisplayUserName {
             get {
@@ -1888,7 +1888,7 @@ namespace ADImport.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Group name / Kentico role name:.
+        ///   Looks up a localized string similar to Group name / Xperience role name:.
         /// </summary>
         internal static string Step8_GroupName {
             get {
@@ -1987,7 +1987,7 @@ namespace ADImport.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please select users and groups to be imported into the Kentico database..
+        ///   Looks up a localized string similar to Please select users and groups to be imported into the Xperience database..
         /// </summary>
         internal static string StepDescription_6 {
             get {
@@ -2014,7 +2014,7 @@ namespace ADImport.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please select Kentico roles which the imported users will be assigned to..
+        ///   Looks up a localized string similar to Please select Xperience roles which the imported users will be assigned to..
         /// </summary>
         internal static string StepDescription_9 {
             get {
@@ -2050,7 +2050,7 @@ namespace ADImport.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Choose Kentico database.
+        ///   Looks up a localized string similar to Choose Xperience database.
         /// </summary>
         internal static string StepName_2 {
             get {
@@ -2113,7 +2113,7 @@ namespace ADImport.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Assign imported users to Kentico roles.
+        ///   Looks up a localized string similar to Assign imported users to Xperience roles.
         /// </summary>
         internal static string StepName_9 {
             get {
@@ -2230,7 +2230,7 @@ namespace ADImport.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kentico Active Directory Import Utility {0}.
+        ///   Looks up a localized string similar to Kentico Xperience Active Directory Import Utility {0}.
         /// </summary>
         internal static string Wizard_Title {
             get {

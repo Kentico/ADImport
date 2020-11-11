@@ -127,7 +127,7 @@ namespace ADImport
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(762, 457);
             this.Name = "ADWizard";
-            this.Text = "Kentico Active Directory Import Utility";
+            this.Text = "Kentico Xperience Active Directory Import Utility";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ADWizard_FormClosing);
             this.Load += new System.EventHandler(this.ADWizard_Load);
             this.pnlAction.ResumeLayout(false);

@@ -142,7 +142,7 @@
     <value>Use an existing import profile</value>
   </data>
   <data name="Step1_Intro" xml:space="preserve">
-    <value>This wizard will guide you through process of importing data from Active Directory to Kentico. You can select users and groups to be imported defining additional settings like user fields mapping, Kentico roles assignment, save profile for future usage etc.</value>
+    <value>This wizard will guide you through process of importing data from Active Directory to Xperience. You can select users and groups to be imported defining additional settings like user fields mapping, Xperience roles assignment, save profile for future usage etc.</value>
   </data>
   <data name="Step1_NewImportProfile" xml:space="preserve">
     <value>Create new import profile</value>
@@ -220,7 +220,7 @@
     <value>Please choose the user name and role name format and specify mapping of user fields.</value>
   </data>
   <data name="StepDescription_6" xml:space="preserve">
-    <value>Please select users and groups to be imported into the Kentico database.</value>
+    <value>Please select users and groups to be imported into the Xperience database.</value>
   </data>
   <data name="StepDescription_7" xml:space="preserve">
     <value>Please adjust selected users.</value>
@@ -229,7 +229,7 @@
     <value>Please adjust selected groups.</value>
   </data>
   <data name="StepDescription_9" xml:space="preserve">
-    <value>Please select Kentico roles which the imported users will be assigned to.</value>
+    <value>Please select Xperience roles which the imported users will be assigned to.</value>
   </data>
   <data name="StepName_1" xml:space="preserve">
     <value>Import profile</value>
@@ -241,7 +241,7 @@
     <value>Import log</value>
   </data>
   <data name="StepName_2" xml:space="preserve">
-    <value>Choose Kentico database</value>
+    <value>Choose Xperience database</value>
   </data>
   <data name="StepName_3" xml:space="preserve">
     <value>Choose Active Directory controller</value>
@@ -262,7 +262,7 @@
     <value>Adjust groups to be imported</value>
   </data>
   <data name="StepName_9" xml:space="preserve">
-    <value>Assign imported users to Kentico roles</value>
+    <value>Assign imported users to Xperience roles</value>
   </data>
   <data name="Wizard_Back" xml:space="preserve">
     <value>&lt; Back</value>
@@ -352,7 +352,7 @@
     <value>Target</value>
   </data>
   <data name="Step5_UserCMSEditor" xml:space="preserve">
-    <value>Configure new users as Kentico editors:</value>
+    <value>Configure new users as Xperience editors:</value>
   </data>
   <data name="Step5_UsernameFormat" xml:space="preserve">
     <value>User name format:</value>
@@ -388,7 +388,7 @@
     <value>Step</value>
   </data>
   <data name="Wizard_Title" xml:space="preserve">
-    <value>Kentico Active Directory Import Utility {0}</value>
+    <value>Kentico Xperience Active Directory Import Utility {0}</value>
   </data>
   <data name="Step6_LoadingADStruct" xml:space="preserve">
     <value>Loading active directory structure...</value>
@@ -397,10 +397,10 @@
     <value>Filter</value>
   </data>
   <data name="Step8_GroupName" xml:space="preserve">
-    <value>Group name / Kentico role name:</value>
+    <value>Group name / Xperience role name:</value>
   </data>
   <data name="Step7_DisplayUserName" xml:space="preserve">
-    <value>Display name/ Kentico user name:</value>
+    <value>Display name/ Xperience user name:</value>
   </data>
   <data name="General_Fullname" xml:space="preserve">
     <value>Full name</value>
@@ -532,10 +532,10 @@
     <value>Import has successfully finished ({0}h {1}m {2}s).</value>
   </data>
   <data name="Step2_CheckingVersion" xml:space="preserve">
-    <value>Checking Kentico version...</value>
+    <value>Checking Xperience version...</value>
   </data>
   <data name="Step2_WrongVersion" xml:space="preserve">
-    <value>Version of selected Kentico database should be {0} (current database version is {1}).</value>
+    <value>Version of selected Xperience database should be {0} (current database version is {1}).</value>
   </data>
   <data name="Error_ProfileIsNotValid" xml:space="preserve">
     <value>Specified import profile is not valid.</value>
@@ -703,10 +703,10 @@
     <value>Specified path doesn't exist.</value>
   </data>
   <data name="General_CMSRolename" xml:space="preserve">
-    <value>Kentico role name</value>
+    <value>Xperience role name</value>
   </data>
   <data name="General_CMSUsername" xml:space="preserve">
-    <value>Kentico user name</value>
+    <value>Xperience user name</value>
   </data>
   <data name="Log_SiteNotExist" xml:space="preserve">
     <value>WARNING: Selected site '{0}' doesn't exist.</value>
@@ -715,10 +715,10 @@
     <value>WARNING: Impossible to import role with identifier {0} because of empty role name.</value>
   </data>
   <data name="Step2_OtherDB" xml:space="preserve">
-    <value>You are probably trying to connect to non-existent or non-Kentico database.</value>
+    <value>You are probably trying to connect to non-existent or non-Xperience database.</value>
   </data>
   <data name="Step4_UpdateSelectedImportNew" xml:space="preserve">
-    <value>Updates selected objects and imports objects that don't exist in Kentico (this setting is used for customized repetitive synchronization of Active Directory).</value>
+    <value>Updates selected objects and imports objects that don't exist in Xperience (this setting is used for customized repetitive synchronization of Active Directory).</value>
   </data>
   <data name="Log_RoleIsNotDomain" xml:space="preserve">
     <value>WARNING: Unable to edit existing role '{0}' because its not marked as domain.</value>
@@ -790,7 +790,7 @@
     <value>Establish connection</value>
   </data>
   <data name="Step2_ConnectionToDBSuccessfull" xml:space="preserve">
-    <value>Connection to correct version of Kentico database was successfully established.</value>
+    <value>Connection to correct version of Xperience database was successfully established.</value>
   </data>
   <data name="Step2_LoadingInstances" xml:space="preserve">
     <value>Loading SQL instances...</value>
