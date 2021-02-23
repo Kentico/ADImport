@@ -17,4 +17,3 @@ For additional information about using the Kentico Xperience AD Import Utility, 
 ## Contributing
 Want to improve the Kentico Xperience AD Import utility? Read the [contributing guidelines](https://github.com/Kentico/ADImport/blob/master/CONTRIBUTING.md).
 
-![Analytics](https://kentico-ga-beacon.azurewebsites.net/api/UA-69014260-4/Kentico/ADImport?pixel)
